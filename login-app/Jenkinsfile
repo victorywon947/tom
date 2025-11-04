@@ -1,12 +1,12 @@
 pipeline {
   agent any
-  tools { maven 'Maven3' }   // Global Tool¿¡ µî·ÏÇÑ ÀÌ¸§
+  tools { maven 'Maven3' }   // Global ToolÂ¿Â¡ ÂµÃ®Â·ÃÃ‡Ã‘ Ã€ÃŒÂ¸Â§
   options { timestamps() }
 
   environment {
     APP_NAME   = 'login-app'
-    TOMCAT_URL = 'http://YOUR_TOMCAT_HOST:8080'
-    CRED_ID    = 'tomcat-manager-cred'
+    TOMCAT_URL = 'http://192.168.0.171:80'
+    CRED_ID    = 'tomcat-deploy'
   }
 
   stages {
@@ -44,6 +44,6 @@ pipeline {
   }
 
   post {
-    success { echo "¹èÆ÷ ¿Ï·á: ${TOMCAT_URL}/${APP_NAME}/" }
+    success { echo "Â¹Ã¨Ã†Ã· Â¿ÃÂ·Ã¡: ${TOMCAT_URL}/${APP_NAME}/" }
   }
 }
